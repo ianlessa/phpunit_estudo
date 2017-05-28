@@ -12,8 +12,9 @@ namespace App\Models;
 class User
 {
 
-    protected $firstName;
-    protected $lastName;
+    private $firstName;
+    private $lastName;
+    private $email;
 
     /**
      * User constructor.
@@ -54,6 +55,27 @@ class User
     public function getFullName() : string
     {
         return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+
+    }
+
+
+    public function getEmail() : string
+    {
+        return $this->email;
+    }
+
+    public function getEmailVariables() : array
+    {
+
+        return [
+            'fullName' => $this->getFullName(),
+            'email' => $this->getEmail()
+        ];
     }
 
 
