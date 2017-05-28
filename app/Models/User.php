@@ -26,7 +26,7 @@ class User
      * @param string $firstName
      */
     public function setFirstName(string $firstName) {
-        $this->firstName = $firstName;
+        $this->firstName = trim($firstName);
     }
 
     /**
@@ -39,7 +39,7 @@ class User
 
     public function setLastName(string $lastName)
     {
-        $this->lastName = $lastName;
+        $this->lastName = trim($lastName);
     }
 
 

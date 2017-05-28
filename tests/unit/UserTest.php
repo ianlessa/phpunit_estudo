@@ -35,4 +35,14 @@ class UserTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($user->getFullName(), "Billy Garrett");
 
     }
+
+    public function testFirstAndLastNameAreTrimmed(){
+        $user = new \App\Models\User;
+
+        $user->setFirstName('   Billy        ');
+        $user->setLastName('          Garrett');
+
+        $this->assertEquals($user->getFirstName(),'Billy');
+        $this->assertEquals($user->getLastName(),'Garrett');
+    }
 }
