@@ -13,6 +13,7 @@ class User
 {
 
     protected $firstName;
+    protected $lastName;
 
     /**
      * User constructor.
@@ -34,6 +35,25 @@ class User
     public function getFirstName() : string
     {
         return $this->firstName;
+    }
+
+    public function setLastName(string $lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getLastName() : string
+    {
+        return $this->lastName;
+    }
+
+    public function getFullName() : string
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 
 

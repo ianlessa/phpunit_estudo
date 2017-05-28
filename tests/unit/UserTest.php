@@ -20,9 +20,19 @@ class UserTest extends \PHPUnit\Framework\TestCase
     public function testThatWeCanGetTheLastName(){
         $user = new \App\Models\User;
 
-        $user->setLastName('Billy');
+        $user->setLastName('Garrett');
 
-        $this->assertEquals($user->getLastName(),'Billy');
+        $this->assertEquals($user->getLastName(),'Garrett');
+
+    }
+
+    public function testFullNameIsReturned() {
+        $user = new \App\Models\User;
+
+        $user->setFirstName('Billy');
+        $user->setLastName('Garrett');
+
+        $this->assertEquals($user->getFullName(), "Billy Garrett");
 
     }
 }
