@@ -11,11 +11,23 @@ namespace App\Support;
 
 class Collection
 {
+    private $items = [];
 
     /**
      * Collection constructor.
      */
-    public function __construct()
+    public function __construct(array $items = [])
     {
+        $this->items = $items;
+    }
+
+    public function get() : array
+    {
+        return $this->items;
+    }
+
+    public function count()
+    {
+        return count($this->items);
     }
 }
