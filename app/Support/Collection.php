@@ -11,7 +11,7 @@ namespace App\Support;
 
 use Traversable;
 
-class Collection implements \IteratorAggregate
+class Collection implements \IteratorAggregate, \JsonSerializable
 {
     private $items = [];
 
@@ -53,5 +53,22 @@ class Collection implements \IteratorAggregate
     public function add(array $items)
     {
         $this->items = array_merge($this->items,$items);
+    }
+
+    public function toJson() : string
+    {
+        return json_encode($this->items);
+    }
+
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
+        return $this->items;
     }
 }
